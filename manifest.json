@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "version": "1.0",
+  "name": "Lex-Pex Magic",
+  "description": "Хватит тратить время на топ! Автоматический парсер и диггер в один клик, а также удобные подписи предметов в инвентаре!",  
+  "permissions": [
+      "activeTab", "tabs", "https://rpgtop.su/cgi-bin/u.cgi?a=inv", "https://rpgtop.su/users/*.html", "https://rpgtop.su/"
+  ],
+  "content_scripts": [
+      {
+         "matches": ["https://rpgtop.su/cgi-bin/u.cgi?a=inv", "https://rpgtop.su/users/*.html", "https://rpgtop.su/cgi-bin/u.cgi?a=inv&id=*&t=*", "https://rpgtop.su/cgi-bin/ms.cgi?a=send&to=*#vesne", "https://rpgtop.su/cgi-bin/g.cgi?a=menyay&id=*"], 
+         "js": ["script/main.js"] 
+      }
+  ],
+  "background": {
+      "scripts": ["script/InfinityParsing.js", "script/DiggerMaster.js"],
+      "persistent": true
+  },
+  "web_accessible_resources": [
+      "script/main.js", "script/InfinityParsing.js", "script/DiggerMaster.js"
+  ],
+  "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": "magicwand.png"
+  },
+  "icons": {
+      "128": "magicwand.png"
+  }
+}
