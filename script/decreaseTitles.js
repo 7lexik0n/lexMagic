@@ -6,4 +6,5 @@ gifts.forEach(function(element){
 giftsFiltred.forEach(function(element){
     let font = +element.querySelector('.signature').style.fontSize.slice(0,-2);
     element.querySelector('.signature').style.fontSize = font - 1 +'px';
+    localStorage.setItem('signFont', element.querySelector('.signature').style.fontSize);
 });
