@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.0",
+  "version": "1.2",
   "name": "Lex-Pex Magic",
   "description": "Хватит тратить время на топ! Автоматический парсер и диггер в один клик, а также удобные подписи предметов в инвентаре!",  
   "permissions": [
@@ -13,11 +13,11 @@
       }
   ],
   "background": {
-      "scripts": ["script/InfinityParsing.js", "script/DiggerMaster.js"],
+      "scripts": ["script/InfinityParsing.js", "script/DiggerMaster.js", "script/siteList.js", "script/increaseIcons.js", "script/decreaseIcons.js", "script/increaseTitles.js", "script/decreaseTitles.js"],
       "persistent": true
   },
   "web_accessible_resources": [
-      "script/main.js", "script/InfinityParsing.js", "script/DiggerMaster.js"
+      "script/main.js", "script/InfinityParsing.js", "script/DiggerMaster.js", "script/siteList.js", "script/increaseIcons.js", "script/decreaseIcons.js", "script/increaseTitles.js", "script/decreaseTitles.js"
   ],
   "browser_action": {
       "default_popup": "popup.html",

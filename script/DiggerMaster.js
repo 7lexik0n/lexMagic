@@ -13,7 +13,7 @@
         var n = 0;
         var giftsArray = [];
         var showChecker = 0;
-        var version = '3.2';
+        var version = '3.3';
         var siteTitle = '';
         var instWindow = 0;
         var workTime = 0;
@@ -110,20 +110,20 @@
                 }
             }
         };
-        function checkSpaun(siteID, winWork) {
+        var checkSpaun = function(siteID, winWork) {
             var spauners = winWork.document.querySelectorAll('.gift span img');
             var siteName = winWork.document.title.slice(16,-10);
             console.log('На сайте ' + siteName + ' установлено спаунеров: ' + spauners.length + ' шт.');
             if (spauners.length < 3) setSpauner(siteID, spauners.length, siteName);
         };
-        function setSpauner(siteID, spaunersNumb, siteName) {
+        var setSpauner = function(siteID, spaunersNumb, siteName) {
             var addSpauners = 3 - spaunersNumb;
             for (var i = 0; i < addSpauners; i++) {
                 spaunWindow.location.href = 'https://rpgtop.su/cgi-bin/m.cgi?a=spawns&id=' + spaunID + '&site=' + siteID + '&ver=on';
                 console.warn('На сайте ' + siteName + ' установлен спаунер!');
             }            
         }
-        function addSite(href) {
+        var addSite = function(href) {
             targetWindows[n] = href;
             giftsArray[n] = {};
             giftsArray[n].wrapper = document.createElement('div');
@@ -143,7 +143,7 @@
             n++;                                 
             workTime = targetWindows.length*12.5;
         }
-        function digg() {
+        var digg = function() {
             if (targetWindows.length > 75) {
                 console.error('ВНИМАНИЕ!');
                 console.warn('Добавлено слишком большое число страниц! Общее количество: ' + targetWindows.length + ' шт. Допустимое количество - 75 страниц.');
@@ -164,7 +164,7 @@
                 })(i);
             }
         }
-        function removeSite(number) {
+        var removeSite = function(number) {
             var num = number-1;
             targetWindows.splice(num,1);
             timersOpen.splice(num,1);
@@ -189,7 +189,7 @@
             console.warn('Все функции остановлены! Нажмите START снова!');
             workTime = targetWindows.length*12.5;
         }
-        function showAll() {
+        var showAll = function() {
             showChecker = 1;
             for(var j = 0; j < targetWindows.length; j++) {
                 var curSite = j;
@@ -212,7 +212,7 @@
                 console.log((j+1) + ': ' + targetWindows[j]);
             }
         }        
-        function showSite(n){
+        var showSite = function(n){
             var curSite = n;
             results.appendChild(giftsArray[curSite].wrapper);
             giftsArray[curSite].wrapper.appendChild(giftsArray[curSite].number);
@@ -232,7 +232,7 @@
             giftsArray[curSite].nameText.innerText = '';
             console.log((n+1) + ': ' + targetWindows[n]);
         };
-        function activateInst() {
+        var activateInst = function() {
            instActivation.location.href = instHref;
            setTimeout(function(){
               var checker = instActivation.document.querySelector('form[name="confirm"]');
@@ -240,7 +240,7 @@
               checker.querySelector('a').click();
            }, 10000);
         }
-        function checkInst() {
+        var checkInst = function() {
            if (instHref == '') {
                console.warn('Нет ссылки на инструмент! Работа будет продолжена без инструмента.');
                checkInst = function(){
@@ -262,7 +262,7 @@
               activateInst();
            }
         }   
-        function stopDigg() {
+        var stopDigg = function() {
             if (targetWindows.length > 0) {
                 for (var i = 0; i < targetWindows.length; i++) {
                     clearTimeout(timersOpen[i]);
