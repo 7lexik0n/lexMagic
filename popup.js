@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var signatureBack = document.querySelector('#signatureBack');
     signatureBack.addEventListener('input', function(){        
         var backColor = signatureBack.value;
+        localStorage.setItem('backColor', backColor);
         chrome.tabs.executeScript({
             code: "var backColor = '" + backColor + "';"
         }, function(result) {
@@ -49,12 +50,19 @@ document.addEventListener('DOMContentLoaded', function(){
         });            
     });
     var signatureText = document.querySelector('#signatureText');
-    signatureText.addEventListener('input', function(){
+    signatureText.addEventListener('input', function(){        
         var textColor = signatureText.value;
+        localStorage.setItem('backTextColor', textColor);
         chrome.tabs.executeScript({
             code: "var textColor = '" + textColor + "';"
         }, function(result) {
             chrome.tabs.executeScript(null, {file: "script/changeTextColor.js"});
         }); 
     });
+    if (localStorage.getItem('backColor')) {
+        document.querySelector('#signatureBack').setAttribute('value', localStorage.getItem('backColor'));
+    }
+    if (localStorage.getItem('backTextColor')) {
+        document.querySelector('#signatureText').setAttribute('value', localStorage.getItem('backTextColor'));
+    } 
 });
