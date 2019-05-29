@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function(){ 
     var parser = document.querySelector('#parser');
     parser.addEventListener('click', function(){
         document.querySelector('head meta').setAttribute('charset', 'windows-1251');
@@ -38,5 +38,23 @@ document.addEventListener('DOMContentLoaded', function(){
     var incrIcons = document.querySelector('#incrIcons');
     incrIcons.addEventListener('click', function(){
         chrome.tabs.executeScript(null, {file: "script/increaseIcons.js"});
+    });
+    var signatureBack = document.querySelector('#signatureBack');
+    signatureBack.addEventListener('input', function(){        
+        var backColor = signatureBack.value;
+        chrome.tabs.executeScript({
+            code: "var backColor = '" + backColor + "';"
+        }, function(result) {
+            chrome.tabs.executeScript(null, {file: "script/changeColor.js"});
+        });            
+    });
+    var signatureText = document.querySelector('#signatureText');
+    signatureText.addEventListener('input', function(){
+        var textColor = signatureText.value;
+        chrome.tabs.executeScript({
+            code: "var textColor = '" + textColor + "';"
+        }, function(result) {
+            chrome.tabs.executeScript(null, {file: "script/changeTextColor.js"});
+        }); 
     });
 });

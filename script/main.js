@@ -11,9 +11,13 @@ for (var i = 0; i < giftsFiltred.length; i++) {
         signature.classList.add('signature');
         signature.innerText = giftsFiltred[i].querySelector('img').getAttribute('alt'); 
         signature.style.fontSize = '9px'; 
-        signature.style.fontWeight = '500'; 
-        signature.style.backgroundColor = 'rgb(93, 60, 45)'; 
-        signature.style.color = '#fff'; 
+        signature.style.fontWeight = '500';         
+        if (localStorage.getItem('backColor')) {
+            signature.style.backgroundColor = localStorage.getItem('backColor');
+        } else signature.style.backgroundColor = '#5d3c2d';        
+        if (localStorage.getItem('textColor')) {
+            signature.style.color = localStorage.getItem('textColor');
+        } else signature.style.color = '#fff';
         signature.style.padding = '2px'; 
         signature.style.textAlign = 'center'; 
         giftsFiltred[i].style.float = 'none';

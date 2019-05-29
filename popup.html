@@ -17,9 +17,11 @@
             <button id="incrIcons">+</button>
         </div>
         <div class="titles">
+            <input type="color" value="#5d3c2d" id="signatureBack">
             <button id="decrTitles">-</button>
             <span>Titles</span>
             <button id="incrTitles">+</button>
+            <input type="color" value="#ffffff" id="signatureText">
         </div>
     </body>
     <style>
@@ -33,6 +35,9 @@
             margin: 10px;
             text-align: center;
             padding-bottom: 15px;
+        }
+        * {
+            box-sizing: border-box;
         }
         h1 {
             font-size: 16px;
@@ -79,6 +84,30 @@
         .titles button {
             display: inline-block;
             margin: 5px;
+        }
+        input[type="color"] {
+            -webkit-appearance: none;
+            border: none;
+            background-color: transparent;
+            width: 21px;
+            height: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            outline: none;
+            cursor: inherit;
+            display: inline-block;
+            vertical-align: middle;
+            transform: translateY(-2px)
+        }
+
+        /* -webkit */
+        input[type="color"]::-webkit-color-swatch-wrapper {
+          padding: 0;    
+        }
+
+        input[type="color"]::-webkit-color-swatch {
+          border: none;  
+          border-radius: 50%;
         }
     </style>
 </html>
