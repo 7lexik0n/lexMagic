@@ -11,8 +11,8 @@ for (var i = 0; i < giftsFiltred.length; i++) {
         signature.classList.add('signature');
         signature.innerText = giftsFiltred[i].querySelector('img').getAttribute('alt'); 
         signature.style.fontSize = '9px'; 
-        signature.style.fontWeight = '700'; 
-        signature.style.backgroundColor = 'rgb(19, 177, 8)'; 
+        signature.style.fontWeight = '500'; 
+        signature.style.backgroundColor = 'rgb(93, 60, 45)'; 
         signature.style.color = '#fff'; 
         signature.style.padding = '2px'; 
         signature.style.textAlign = 'center'; 
